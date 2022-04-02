@@ -170,7 +170,8 @@ ul .word i {
 }
 
 /* les 3 i */
-
+/* =================================================================================== */
+/* he bta5lle heda el partli huwe .content ysir scrolable */
 ul .content {
     max-height: 215px;
     overflow-y: auto;
