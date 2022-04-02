@@ -8,6 +8,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* hay applicable 3al childen wrapper */
 body {
     display: flex;
     align-items: center;
@@ -16,6 +17,7 @@ body {
     background: #4D59FB;
 }
 
+/* text aw el p li byen3amal 3le selection */
 ::selection {
     color: #fff;
     background: #4D59FB;
@@ -29,12 +31,14 @@ body {
     box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
 }
 
+/* header */
 .wrapper header {
     font-size: 28px;
     font-weight: 500;
     text-align: center;
 }
 
+/* div taba3 input search wel i */
 .wrapper .search {
     position: relative;
     margin: 35px 0 18px;
@@ -50,15 +54,19 @@ body {
     border: 1px solid #999;
 }
 
+/* onfocus */
 .search input:focus {
     padding: 0 41px;
     border: 2px solid #4D59FB;
 }
 
+
+/* kif tgayer lon el placeholder */
 .search input::placeholder {
     color: #B8B8B8;
 }
 
+/* devel */
 .search :where(i, span) {
     position: absolute;
     top: 50%;
@@ -66,16 +74,22 @@ body {
     transform: translateY(-50%);
 }
 
+/* beforeee */
 .search i {
     left: 18px;
     pointer-events: none;
     font-size: 16px;
 }
 
+
+/* i tags preceded by input */
+/* importantee */
+/* iza n3amal focus bisir lon el i ger */
 .search input:focus~i {
     color: #4D59FB;
 }
 
+/* he el X close icon */
 .search span {
     right: 15px;
     cursor: pointer;
@@ -83,6 +97,9 @@ body {
     display: none;
 }
 
+
+/* span tags preceded by input */
+/* oza kenet valid */
 .search input:valid~span {
     display: block;
 }
@@ -93,14 +110,18 @@ body {
     margin: -3px 0 -10px;
 }
 
+
+/* hayda el p li bas yenhat active bte5tefe */
 .wrapper.active .info-text {
     display: none;
 }
 
+/* hon btezhar */
 .info-text span {
     font-weight: 500;
 }
 
+/* he li 5efye tene part*/
 .wrapper ul {
     height: 0;
     opacity: 0;
@@ -109,6 +130,7 @@ body {
     transition: all 0.2s ease;
 }
 
+/* el active hon byeje */
 .wrapper.active ul {
     opacity: 1;
     height: 303px;
@@ -130,6 +152,7 @@ ul li:last-child {
     padding-bottom: 0;
 }
 
+/* word */
 ul .word p {
     font-size: 22px;
     font-weight: 500;
@@ -145,6 +168,8 @@ ul .word i {
     font-size: 15px;
     cursor: pointer;
 }
+
+/* les 3 i */
 
 ul .content {
     max-height: 215px;
@@ -170,6 +195,8 @@ ul .content::-webkit-scrollbar {
     font-size: 15px;
     color: #7E7E7E;
 }
+
+/* list */
 
 .content .synonyms .list {
     display: flex;
