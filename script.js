@@ -1,36 +1,40 @@
 const wrapper = document.querySelector(".wrapper");//wrapper
-const searchInput = wrapper.querySelector("input");
-const synonyms = wrapper.querySelector(".synonyms .list");
-const infoText = wrapper.querySelector(".info-text");
-const volumeIcon = wrapper.querySelector(".word i");
-const removeIcon = wrapper.querySelector(".search span");
-var audio;
+const searchInput = wrapper.querySelector("input");//input
+const synonyms = wrapper.querySelector(".synonyms .list");//list li byenzal fia synonyms
+const infoText = wrapper.querySelector(".info-text");//current status
+const volumeIcon = wrapper.querySelector(".word i");//volume play
+const removeIcon = wrapper.querySelector(".search span");// el close
+var audio;//audio
 
 
-window.onload = searchInput.focus();
-//we have 5
+window.onload = searchInput.focus();//focus on load
+//we have 5 editable
 
-//data function
+
+// 3-Data function
 function data(result, word) {
     if (result.title) { //if api returns the message of can't find word
         infoText.innerHTML = `Can't find the meaning of <span>"${word}"</span>.Please, try to search for another word.`;
+        console.log(result);
     } else {
         console.log(result);
-        wrapper.classList.add("active");
-        let arry = result[0].meanings;
-        let lastElement = arry[arry.length - 1];
-        console.log(lastElement);
-        let definitions = lastElement.definitions[0];
-        let phonetics = `${lastElement.partOfSpeech}  ${result[0].phonetics[0].text}`;
+        wrapper.classList.add("active");//display block and change the opacity
+
+        let arry = result[0].meanings;//a5adna el meanings kellon
+        let lastElement = arry[arry.length - 1];//3tine e5er menaingzeye
+        console.log(lastElement);//last one
+        let definitions = lastElement.definitions[0];//Get first defintion // array
+        let phonetics = `${lastElement.partOfSpeech}  ${result[0].phonetics[1].text}`;//adjetive/hapi
+
 
         //let's pass the particular response data to a particular html element
-        document.querySelector(".word p").innerText = result[0].word;//hello
+        document.querySelector(".word p").innerText = result[0].word;//happy
         document.querySelector(".word span").innerText = phonetics;//adjective/hapi
         document.querySelector(".meaning span").innerText = definitions.definition;//Having a feeling 
         document.querySelector(".example span").innerText = definitions.example;//example
         audio = new Audio(result[0].phonetics[0].audio);//creating new audio obj and passing audio src
 
-        console.log(audio);
+        console.log(audio);//https://sdjdhjdhj.com
 
         if (definitions.synonyms[0] == "") { //if there is no synonym then hide the synonyms div
             synonyms.parentElement.style.display = "none";
@@ -48,6 +52,8 @@ function data(result, word) {
 
     }
 }
+
+
 
 
 
@@ -88,9 +94,9 @@ function search(word) {
 
 //search dictionary api
 // https://dictionaryapi.dev/
-//fetch api function
+//2-fetch api function
 function fetchApi(word) {
-    wrapper.classList.remove("active");
+    wrapper.classList.remove("active");// display none
     infoText.style.color = "#000";
     infoText.innerHTML = `Searching the meaning of <span>"${word}"</span>`;
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
@@ -103,12 +109,12 @@ function fetchApi(word) {
 }
 
 
-//search dictionary api
+//1-search dictionary api
 // https://dictionaryapi.dev/
 
 searchInput.addEventListener("keyup", e => {
-    if (e.key === "Enter" && e.target.value) {
-        fetchApi(e.target.value);
+    if (e.key === "Enter" && e.target.value) { //if enter is clicked and event is true
+        fetchApi(e.target.value);//shaggel el method hayde
     }
 })
 
